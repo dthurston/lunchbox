@@ -14,7 +14,7 @@ Requirements
   - `syslinux`
   - `isomd5sum`
 
-Role Variables
+Variables
 --------------
 
 | Variable | Required | Default | Description |
@@ -23,8 +23,17 @@ Role Variables
 | `custom_install_image_src_iso` | :heavy_check_mark: | | Fully qualified location of EL7 ISO (currently only RHEL 7.6+ functions) |
 | `custom_install_image_dst_iso` | :heavy_check_mark: | | Fully qualified location to save the newly created ISO (will be overwritten if it exists) |
 | `custom_install_image_ks_file` | :heavy_check_mark: | | Fully qualified location of the custom kickstart file |
-| `custom_install_image_label` | :x: | ```custom_image``` | Label that appears when the custom ISO/disk is mounted |
-| `custom_install_image_menu_label` | :x: | ```Custom Image``` | Label that appears in the installer menu |
+| `custom_install_image_label` |  | ```custom_image``` | Label that appears when the custom ISO/disk is mounted |
+| `custom_install_image_menu_label` |  | ```Custom Image``` | Label that appears in the installer menu |
+
+External Vars File
+------------------
+
+- You will need to set up the following variables in an "external_vars.yml" file
+
+  - `rhuser: myusername`
+  - `rhpass: mypassword`
+  - `poolid: 8675309a8675309a8675309a8675309a`
 
 Example
 ------------
