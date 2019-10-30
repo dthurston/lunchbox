@@ -1,0 +1,47 @@
+---
+- hosts: all
+  vars_files:
+    - ../external_vars.yml
+  tasks:
+  - name: Register with RHSM
+    redhat_subscription:
+      state: present
+      username: rhuser
+      password: rhpass
+      pool_ids: poolid
+
+  - name: Disable all RHSM repositories
+    rhsm_repository:
+      name: '*'
+      state: disabled
+
+  - name: Enable a RHSM repository
+    rhsm_repository:
+      name: 
+      - rhel-7-server-rpms
+      - rhel-7-server-devtools-rpms
+      - rhel-server-rhscl-7-rpms
+
+  - rpm_key:
+      state: present
+      key: https://www.redhat.com/security/data/a5787476.txt
+
+  - name: Install Minishift
+    yum:
+      name: 
+        - cdk-minishift
+        - docker-machine-kvm
+      state: present
+
+# accept keys here?
+# useradd -G wheel dthursto 
+# export $PATH:~/.minishift/cache/oc/v3.11.104/linux
+# minishift config set memory 16384
+# enable rhel-7-server-extras-rpms
+#add repos
+#- name: Add repository
+#  yum_repository:
+#    name: epel
+#    description: EPEL YUM repo
+#    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+

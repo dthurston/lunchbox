@@ -20,7 +20,7 @@ Role Variables
 | Variable | Required | Default | Description |
 | -------- | -------- | ------- | ----------- |
 | `local_home` | :heavy_check_mark: | | Local $HOME user environment |
-| `custom_install_image_src_iso` | :heavy_check_mark: | | Fully qualified location of EL7 ISO (currently only RHEL 7.6 functions) |
+| `custom_install_image_src_iso` | :heavy_check_mark: | | Fully qualified location of EL7 ISO (currently only RHEL 7.6+ functions) |
 | `custom_install_image_dst_iso` | :heavy_check_mark: | | Fully qualified location to save the newly created ISO (will be overwritten if it exists) |
 | `custom_install_image_ks_file` | :heavy_check_mark: | | Fully qualified location of the custom kickstart file |
 | `custom_install_image_label` | :x: | ```custom_image``` | Label that appears when the custom ISO/disk is mounted |
