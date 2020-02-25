@@ -3,11 +3,11 @@
   become: yes
   vars:
     local_home: "{{ lookup('env','HOME') }}"
-    custom_install_image_src_iso: rhel-server-7.7-x86_64-dvd.iso
-    custom_install_image_dst_iso: lunchbox-7.7-x86_64-dvd.iso
+    custom_install_image_src_iso: rhel-8.1-x86_64-dvd.iso
+    custom_install_image_dst_iso: lunchbox-8.1-x86_64-dvd.iso
     custom_install_image_ks_file: lunchbox-ks.cfg
-    custom_install_image_label: "Lunchbox_7.7"
-    custom_install_image_menu_label: "Lunchbox 7.7"
+    custom_install_image_label: "Lunchbox_8.1"
+    custom_install_image_menu_label: "Lunchbox 8.1"
   tasks:
     - name: Check if src iso exists
       stat:
@@ -90,7 +90,7 @@
     - name: replace RHEL disk label
       replace:
         path: "{{ custom_install_image_temp_dir.path }}/dst_files/EFI/BOOT/grub.cfg"
-        regexp: "RHEL.7\\.6(\\\\x20)?( )?Server\\.x86_64"
+        regexp: "RHEL.8\\.1(\\\\x20)?( )?Server\\.x86_64"
         replace: "{{ custom_install_image_label }}"
 
     - name: add in kickstart references

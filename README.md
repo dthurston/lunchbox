@@ -31,9 +31,11 @@ External Vars File
 
 - You will need to set up the following variables in an "external_vars.yml" file
 
-  - `rhuser: myusername`
-  - `rhpass: mypassword`
-  - `poolid: 8675309a8675309a8675309a8675309a`
+```bash   
+rhuser: myusername
+rhpass: mypassword
+poolid: 8675309a8675309a8675309a8675309a
+```
 
 Example
 ------------
